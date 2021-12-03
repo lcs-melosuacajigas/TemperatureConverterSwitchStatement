@@ -17,21 +17,20 @@ struct ContentView: View {
         return temperatureInCelsius * 1.8 + 32
     }
     
-    var feedback: String {
-        if temperatureInCelsius < -20.0 {
+    switch  temperatureInCelsius {
+        case ...(-20):
             return "It's freezing outside! 🥶"
-        } else if temperatureInCelsius < 0.0 {
+        case -20...0:
             return "Dress warmly!"
-        } else if temperatureInCelsius < 10.0 {
+        case 0...10:
             return "Need a coat!"
-        } else if temperatureInCelsius < 20.0 {
+        case 10...20:
             return "Not very cold, not very hot... Perfect!"
-        } else if temperatureInCelsius < 30.0 {
+        case 20...30:
             return "Warm weather! Wear thin layers."
-        } else {
+        default:
             return "Never go out! It's too hot. 🥵"
-        
-        }
+    
     }
     
     var body: some View {
